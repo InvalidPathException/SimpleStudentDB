@@ -8,5 +8,5 @@ Open pgAdmin4 and create a new database `simplestudentdb`, then run the `DDL.sql
 ## Running the program
 To run the program, open the terminal and run:
 ```pip install psycopg```
-Then execute ```main.py``` in any way you want (but the environment must support command line), enter the credentials and then try each function out.
+Then execute ```main.py``` in any way you want (but the environment must support command line), enter the credentials and try each function out.
 
