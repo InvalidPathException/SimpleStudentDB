@@ -81,7 +81,7 @@ def getAllStudents():
         return
     try:
         cur = conn.cursor()
-        cur.execute("SELECT * FROM students")
+        cur.execute("SELECT * FROM students ORDER BY student_id")
         rows = cur.fetchall()
 
         table = PrettyTable()  # Creating a PrettyTable

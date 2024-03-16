@@ -3,7 +3,7 @@ Zhenxuan Ding 101269248
 
 ## Database setup
 1. Open pgAdmin4 and create a new database
-2. Run the scripts under `SQL Scripts` directory in the PSQL tool (`DDL.sql` then `DML.sql`)
+2. Run the scripts under `SQL Scripts` directory in the Query Tool (`DDL.sql` first, then `DML.sql`)
 
 ## Running the program
 1. To run the program, open the terminal and run: ```pip install psycopg``` (not psycopg2) and ```pip install prettytable```
