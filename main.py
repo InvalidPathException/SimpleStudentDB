@@ -6,11 +6,14 @@ host = "localhost"
 port = "5432"
 
 
+'''
+    This function is the main function of the program, it repeatedly displays the menu and processes the user's choice
+'''
 def main():
     global conn
     conn = connect()
     while True:
-        print_menu()
+        printMenu()
         choice = input("Enter the number of your choice: ")
         if choice == "1":
             getAllStudents()
@@ -31,11 +34,11 @@ def main():
             print("Goodbye!")
             break
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid choice. Please try again.\n")
     conn.close()
 
 
-def print_welcome():
+def printWelcome():
     print("Welcome to SimpleStudentDatabaseManager!")
     print("Before continuing, please make sure that:")
     print("1. You have a local PostgreSQL server running on the default port (5432)")
@@ -43,7 +46,7 @@ def print_welcome():
     print("3. This program uses the 'postgres' user to connect to the database to ensure you have the permissions")
 
 
-def print_menu():
+def printMenu():
     print("What would you like to do?")
     print("1. Display all records from the students table")
     print("2. Add a student")
@@ -52,6 +55,9 @@ def print_menu():
     print("5. Exit")
 
 
+'''
+    This function connects to the database using the user's input for the database name and password
+'''
 def connect():
     global conn, user, host, port
     while True:
@@ -65,6 +71,9 @@ def connect():
             print(f"Error: {e}")
 
 
+'''
+    This function retrieves all students from the students table and displays them in a table format
+'''
 def getAllStudents():
     global conn
     if conn is None:
@@ -89,6 +98,10 @@ def getAllStudents():
         cur.close()  # Ensure the cursor is closed after operation
 
 
+'''
+    This function adds a student to the students table
+    The student's first name, last name, email, and enrollment date are specified as parameters
+'''
 def addStudent(first_name, last_name, email, enrollment_date):
     global conn
     if conn is None:
@@ -107,6 +120,10 @@ def addStudent(first_name, last_name, email, enrollment_date):
         cur.close()
 
 
+'''
+    This function updates the email of a student with the specified student_id
+    If the student does not exist, no changes are made to the database
+'''
 def updateStudentEmail(student_id, new_email):
     global conn
     if conn is None:
@@ -128,6 +145,10 @@ def updateStudentEmail(student_id, new_email):
         cur.close()
 
 
+'''
+    This function deletes a student from the students table with the specified student_id
+    If the student does not exist, no changes are made to the database
+'''
 def deleteStudent(student_id):
     global conn
     if conn is None:
