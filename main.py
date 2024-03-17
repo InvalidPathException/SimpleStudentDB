@@ -10,6 +10,7 @@ port = "5432"
     This function is the main function of the program, it repeatedly displays the menu and processes the user's choice
 '''
 def main():
+    printWelcome()
     global conn
     conn = connect()
     while True:
@@ -43,7 +44,7 @@ def printWelcome():
     print("Before continuing, please make sure that:")
     print("1. You have a local PostgreSQL server running on the default port (5432)")
     print("2. A database is already created using the provided DDL script")
-    print("3. This program uses the 'postgres' user to connect to the database to ensure you have the permissions")
+    print("3. This program uses the 'postgres' user to connect to the database to ensure you have the permissions\n")
 
 
 def printMenu():
@@ -65,7 +66,7 @@ def connect():
         password = input("Please enter the password for the 'postgres' user: ")
         try:
             conn = psycopg.connect(f"dbname={dbname} user={user} password={password} host={host} port={port}")
-            print("Connection successful!")
+            print("Connection successful!\n")
             return conn
         except Exception as e:
             print(f"Error: {e}")
@@ -116,7 +117,7 @@ def addStudent(first_name, last_name, email, enrollment_date):
         conn.rollback()  # rollback the transaction if an error occurs
         print(f"Error: {e}")
     finally:
-        print("")  # print an empty line and close the cursor
+        getAllStudents()  # print the table so the user can see the changes
         cur.close()
 
 
@@ -141,7 +142,7 @@ def updateStudentEmail(student_id, new_email):
         conn.rollback()  # rollback the transaction if an error occurs
         print(f"Error: {e}")
     finally:
-        print("")  # print an empty line and close the cursor
+        getAllStudents()  # print the table so the user can see the changes
         cur.close()
 
 
@@ -166,7 +167,7 @@ def deleteStudent(student_id):
         conn.rollback()  # rollback the transaction if an error occurs
         print(f"Error: {e}")
     finally:
-        print("")  # print an empty line and close the cursor
+        getAllStudents()  # print the table so the user can see the changes
         cur.close()
 
 
