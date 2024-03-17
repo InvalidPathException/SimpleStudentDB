@@ -2,7 +2,7 @@
 Zhenxuan Ding 101269248
 
 ## Video link
-https://youtu.be/hXesGDfIylc
+https://youtu.be/braFobvp6Iw
 
 ## Database setup
 1. Open pgAdmin4 and create a new database

@@ -162,7 +162,7 @@ def deleteStudent(student_id):
             print("No student found with the specified ID. No changes were made.")
         else:  # the student with the specified ID was successfully deleted
             conn.commit()  # commit the transaction
-            print("Student email updated successfully!")
+            print("Student " + student_id + " deleted.")
     except Exception as e:
         conn.rollback()  # rollback the transaction if an error occurs
         print(f"Error: {e}")
